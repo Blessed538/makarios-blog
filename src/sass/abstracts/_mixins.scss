@@ -1,0 +1,110 @@
+
+@mixin on-event($self: false) {
+    @if $self {
+      &,
+      &:hover,
+      &:active,
+      &:focus,
+      &:focus-within {
+        @content;
+      }
+    } @else {
+      &:hover,
+      &:active,
+      &:focus,
+      &:focus-within {
+        @content;
+      }
+    }
+  }
+  
+  /// Make a context based selector a little more friendly
+  /// @author Kitty Giraudel
+  /// @param {String} $context
+  @mixin when-inside($context) {
+    #{$context} & {
+      @content;
+    }
+  }
+
+  @mixin cta-nav {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0;
+  
+  }
+
+  @mixin homepage-btn {
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 21px;
+    height: 40px;
+    display: inline-block;
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    // font-size: var(--font-size-14);
+    // line-height: var(--font-size-20);
+    // font-weight: var(--font-weight-600);
+    text-align: center;
+    padding: 10px 20px;
+    margin: 0;
+    opacity: 1;
+    outline: 0;
+    text-decoration: none;
+    white-space: nowrap;
+}
+@mixin hero-btn {
+    height: 52px;
+    border-radius: 6px;
+    font-size: 17px;
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-family-text;
+    font-weight: $font-weight-600;
+    // letter-spacing: $letter-spacing-small;
+    padding: 0 20px;
+  
+    border-radius: $border-radius-4;
+    transition: $animate-hover;
+}
+
+@mixin container($maxW) {
+  max-width: $maxW;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+
+}
+
+@mixin flexCol {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+@mixin flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin flexAround {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@mixin items-center {
+  text-align: center;
+}
